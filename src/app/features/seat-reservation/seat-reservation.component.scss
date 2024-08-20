@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+$primary-color: #3f51b5;
+$secondary-color: #f50057;
+$background-color: #f0f2f5;
+$card-background: #ffffff;
+$seat-available: #4caf50;
+$seat-booked: #f44336;
+$button-color: #7828a3;
+$input-background: #fafafa;
+$icon-color: #311938;
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.seat-reservation-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: $background-color;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.reservation-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: $card-background;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: $primary-color;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.seat-map {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 15px;
+
+  .seat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: $seat-available;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &.booked {
+      background-color: $seat-booked;
+      cursor: not-allowed;
+    }
+
+    &:not(.booked):hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    mat-icon {
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+      color: $icon-color;
+    }
+
+    .seat-number {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+}
+
+.booking-form {
+  display: flex;
+  //   align-items: center;
+  justify-content: end;
+  gap: 1.5rem;
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 15px;
+
+  mat-form-field {
+    width: 200px;
+
+    ::ng-deep {
+      .mat-form-field-flex {
+        background-color: $input-background;
+        border-radius: 8px;
+        padding: 0.5em 0.75em;
+      }
+
+      .mat-form-field-underline {
+        display: none;
+      }
+
+      .mat-form-field-label {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .mat-input-element {
+        color: white;
+      }
+    }
+  }
+
+  button {
+    height: 56px;
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    border-radius: 28px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background-color: $button-color;
+    color: white;
+
+    &:hover:not([disabled]) {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: lighten($button-color, 5%);
+    }
+
+    &[disabled] {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    mat-icon {
+      margin-right: 8px;
+      color: $icon-color;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .seat-map .seat {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .seat-map .seat {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  .seat-reservation-container {
+    padding: 1rem;
+  }
+
+  .reservation-card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .seat-map {
+    padding: 1rem;
+
+    .seat {
+      width: 40px;
+      height: 40px;
+
+      mat-icon {
+        font-size: 20px;
+        height: 20px;
+        width: 20px;
+      }
+
+      .seat-number {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .booking-form {
+    flex-direction: column;
+    padding: 1rem;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .seat-map .seat {
+    width: 35px;
+    height: 35px;
+
+    mat-icon {
+      font-size: 18px;
+      height: 18px;
+      width: 18px;
+    }
+
+    .seat-number {
+      font-size: 9px;
+    }
+  }
+}

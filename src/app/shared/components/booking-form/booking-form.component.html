@@ -1,0 +1,5 @@
+<div class="booking-form">
+    <label for="numSeats">Number of seats:</label>
+    <input type="number" id="numSeats" [(ngModel)]="numSeats" min="1" max="7">
+    <button (click)="onSubmit()">Reserve Seats</button>
+</div>

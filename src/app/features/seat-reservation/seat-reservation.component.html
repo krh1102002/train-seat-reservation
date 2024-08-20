@@ -1,0 +1,22 @@
+<div class="seat-reservation-container">
+    <div class="reservation-card">
+        <h1 class="title">Train Seat Reservation System</h1>
+        <div class="seat-map">
+            <div class="seat" *ngFor="let seat of seats" [class.booked]="seat.isBooked">
+                <mat-icon>{{ seat.isBooked ? 'event_seat' : 'event_available' }}</mat-icon>
+                <span class="seat-number">{{ seat.seatNumber }}</span>
+            </div>
+        </div>
+
+        <div class="booking-form">
+            <mat-form-field appearance="fill">
+                <mat-label>Number of seats</mat-label>
+                <input matInput type="number" [(ngModel)]="numSeats" min="1" max="7">
+            </mat-form-field>
+            <button mat-raised-button (click)="bookSeats()" [disabled]="numSeats < 1 || numSeats > 7">
+                <mat-icon>confirmation_number</mat-icon>
+                RESERVE SEATS
+            </button>
+        </div>
+    </div>
+</div>

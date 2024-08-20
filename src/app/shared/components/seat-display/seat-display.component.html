@@ -1,0 +1,10 @@
+<div class="seat-map">
+    <div class="row g-2" *ngFor="let row of [1,2,3,4,5,6,7,8,9,10]">
+        <div class="col" *ngFor="let seat of getRowSeats(row)">
+            <div class="seat" [ngClass]="{'booked': seat.isBooked, 'available': !seat.isBooked}">
+                <i class="bi" [ngClass]="{'bi-person-fill': seat.isBooked, 'bi-person': !seat.isBooked}"></i>
+                <span>{{ seat.seatNumber.toString().padStart(2, '0') }}</span>
+            </div>
+        </div>
+    </div>
+</div>
