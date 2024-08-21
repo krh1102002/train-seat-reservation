@@ -8,7 +8,7 @@ import { Seat } from '../models/seat.model';
   providedIn: 'root',
 })
 export class SeatReservationService {
-  private apiUrl = 'https://train-seat-reservation.onrender.com/api';
+  private apiUrl = 'https://train-seat-reservation-1.onrender.com/api';
   private seatsSubject = new BehaviorSubject<Seat[]>([]);
   seats$ = this.seatsSubject.asObservable();
 
